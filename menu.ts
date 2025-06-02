@@ -1,10 +1,13 @@
 import readlinesync = require("readline-sync");
+import { colors } from './src/util/colors';
 
 export function main() { //export para tornar a função acessível fora da classe menu
     
     let opcao: number; //variável do tipo number que vai receber o numero da opção do menu que deverá se rexecutada
 
     while (true) {
+
+        console.log(colors.fg.green)
 
         console.log("*****************************************************");
         console.log("                                                     ");
@@ -23,53 +26,75 @@ export function main() { //export para tornar a função acessível fora da clas
         console.log("            9 - Sair                                 ");
         console.log("                                                     ");
         console.log("*****************************************************");
-        console.log("                                                     ");
+        console.log("                                                     ", 
+        colors.reset);
 
-        console.log("Entre com a opção desejada: ");
+        console.log(colors.fg.redstrong, 
+        "Entre com a opção desejada: ", colors.reset);
         opcao = readlinesync.questionInt(""); //o readline nao aceitaria acentuação, então utilizamos a saída para usarmos e para a escolha de opção deixamos em branco
 
         if (opcao == 9) {
-            console.log("\nMelzin Bank - O seu melhor banco no terminal do seu computador!");
+            console.log(colors.fg.greenstrong,
+                "\nMelzin Bank - O seu melhor banco no terminal do seu computador!");
             sobre();
+            console.log(colors.reset, "");
             process.exit(0);
         }
 
         switch (opcao) {
             case 1:
-                console.log("\n\nCriar Conta\n\n");
-
+                console.log(colors.fg.whitestrong,
+                    "\n\nCriar Conta\n\n", colors.reset);
+                
+                keyPress()
                 break;
             case 2:
-                console.log("\n\nListar todas as contas\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nListar todas as contas\n\n", colors.reset);
+
+                keyPress()
                 break;
             case 3:
-                console.log("\n\nConsultar dados da Conta - por número\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nConsultar dados da Conta - por número\n\n", colors.reset);
+
+                keyPress()
                 break;
             case 4:
-                console.log("\n\nAtualizar dados da Conta\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nAtualizar dados da Conta\n\n", colors.reset);
+
+                keyPress()
                 break;
             case 5:
-                console.log("\n\nApagar uma Conta\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nApagar uma Conta\n\n", colors.reset);
+
+                keyPress()
                 break;
             case 6:
-                console.log("\n\nSacar Dinheiro da Conta\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nSacar Dinheiro da Conta\n\n", colors.reset);
+
+                keyPress()
                 break;
             case 7:
-                console.log("\n\nDepositar Dinheiro na Conta\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nDepositar Dinheiro na Conta\n\n", colors.reset);
+                    
+                keyPress()
                 break;
             case 8:
-                console.log("\n\nTranferência entre Contas\n\n");
-                
+                console.log(colors.fg.whitestrong,
+                    "\n\nTranferência entre Contas\n\n", colors.reset);
+
+                keyPress()
                 break;
             default:
-                console.log("\nOpção Inválida!\n");
-
+                console.log(colors.fg.whitestrong,
+                    "\nOpção Inválida!\n", colors.reset);
+                
+                keyPress()
                 break;
         }
     }
@@ -83,4 +108,9 @@ export function main() { //export para tornar a função acessível fora da clas
     console.log("*****************************************************");
 }
 
+    function keyPress(): void {
+        console.log(colors.reset, "");
+        console.log("\nPressione enter para continuar...");
+        readlinesync.prompt(); 
+}
 main();
