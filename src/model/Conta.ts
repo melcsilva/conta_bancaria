@@ -1,4 +1,4 @@
-export class Conta { //Criamos as variáveis que representam os Atributos da Classe Conta.
+export abstract class Conta { //Criamos as variáveis que representam os Atributos da Classe Conta.
     private _numero: number;
     private _agencia: number;
     private _tipo: number;

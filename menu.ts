@@ -1,17 +1,26 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/util/colors';
 import { Conta } from "./src/model/Conta";
+import { ContaCorrente } from "./src/model/contaCorrente";
+import { ContaPoupanca } from "./src/model/contaPoupanc";
 
 export function main() { //export para tornar a função acessível fora da classe menu
     
     let opcao: number; //variável do tipo number que vai receber o numero da opção do menu que deverá se rexecutada
 
-    const conta: Conta = new Conta(1, 245, 1, "Melissa", 1000);
-    conta.visualizar();
-    conta.sacar(5000);
-    conta.visualizar();
-    conta.depositar(1000);
-    conta.visualizar();
+    const contacorrente: ContaCorrente = new ContaCorrente(2, 245, 1, "Melissa", 10000, 1000);
+    contacorrente.visualizar();
+    contacorrente.sacar(1500);
+    contacorrente.visualizar();
+    contacorrente.depositar(2500);
+    contacorrente.visualizar();
+
+    const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 245, 2, "Melissa", 10000, 16);
+    contapoupanca.visualizar();
+    contapoupanca.sacar(280);
+    contapoupanca.visualizar();
+    contapoupanca.depositar(20);
+    contapoupanca.visualizar();
 
     while (true) {
 
