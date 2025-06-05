@@ -44,6 +44,7 @@ export abstract class Conta { //Criamos as variáveis que representam os Atribut
     public set titular(titular: string) {
         this._titular = titular;
     }
+
     public get saldo() {
         return this._saldo;
     }
@@ -53,6 +54,12 @@ export abstract class Conta { //Criamos as variáveis que representam os Atribut
     }
 
     public sacar(valor: number): boolean {
+
+        if (valor <= 0) {
+            console.log("\nERRO: VALOR INVÁLIDO!");
+            return false;
+        }
+
         if (this._saldo < valor) {
             console.log("\n Saldo Insuficiente!");
             return false;
@@ -62,7 +69,8 @@ export abstract class Conta { //Criamos as variáveis que representam os Atribut
         return true;
     }
 
-    public depositar(valor: number): void { 
+    public depositar(valor: number): void {
+
         this._saldo = this._saldo + valor;
     }
 

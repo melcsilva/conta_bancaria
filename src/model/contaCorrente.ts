@@ -19,6 +19,11 @@ export class ContaCorrente extends Conta {
 
     public sacar(valor: number): boolean {
 
+        if (valor <= 0) {
+            console.log("\nERRO: DIGITE UM VALOR VÁLIDO!");
+            return false;
+        }
+
         if((this.saldo + this._limite) < valor) {
             console.log("\n Saldo Insuficiente!");
             return false;
